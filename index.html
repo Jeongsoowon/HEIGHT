@@ -60,7 +60,7 @@
       		alert("실행이 되지 않는다!");
       		return ;
       	}
-      //	var s = document.getElementById("height").value;
+      	var s = document.getElementById("height").value;
       	var k = document.getElementById("age").value;
       //	var h = documnet.getElemnetById("male").checked;
       	var f = document.getElementById("female").checked;
@@ -71,7 +71,7 @@
         //var f = document.getElementById("female").checked;
       	//req.open("GET", "index.jsp?height= " + encodeURI(s)+ "&age=" + encodeURI(k) + "&male=" + encodeURI(h) + " &female=" + encodeURI(f));
       	//req.open("post", "index.jsp?age= " + encodeURI(k));
-      	req.open("GET", "index.jsp?female=" + encodeURI(f) + "&age=" + encodeURI(k));
+      	req.open("GET", "index.jsp?female=" + encodeURI(f) + "&age=" + encodeURI(k) + "&height=" + encodeURI(s));
       	req.setRequestHeader("User-Agent", "XMLHttpRequest");
       	req.onreadystatechange = function() {
       		if (this.readyState == 4 && this.status == 200){
@@ -86,7 +86,7 @@
       function createRequest(){
       	var httplist = [
       		function() { return new XMLHttpRequest(); },
-      		function() { return new ActiveXObjct("Msxml2.XMLHTTP"); },
+      		function() { return new ActiveXObject("Msxml2.XMLHTTP"); },
       		function() { return new ActiveXObject("Microsoft.XMLHTTP"); }
       		 
       	];
