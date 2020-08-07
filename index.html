@@ -60,12 +60,18 @@
       		alert("실행이 되지 않는다!");
       		return ;
       	}
-      //	var s = document.getElementById("age").value;
-      	var h = document.getElemnetById("height").value;
+      //	var s = document.getElementById("height").value;
+      	var k = document.getElementById("age").value;
+      //	var h = documnet.getElemnetById("male").checked;
+      	var f = document.getElementById("female").checked;
+      //	var e = {s, k};
+      //	var h = document.getElemnetById("height").value;
 
  	   // var m = document.getElementById("male").checked;
         //var f = document.getElementById("female").checked;
-      	req.open("post", "index.jsp?height= " + encodeURI(h));
+      	//req.open("GET", "index.jsp?height= " + encodeURI(s)+ "&age=" + encodeURI(k) + "&male=" + encodeURI(h) + " &female=" + encodeURI(f));
+      	//req.open("post", "index.jsp?age= " + encodeURI(k));
+      	req.open("GET", "index.jsp?female=" + encodeURI(f) + "&age=" + encodeURI(k));
       	req.setRequestHeader("User-Agent", "XMLHttpRequest");
       	req.onreadystatechange = function() {
       		if (this.readyState == 4 && this.status == 200){
