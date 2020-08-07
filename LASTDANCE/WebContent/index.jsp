@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	import User.UserDAO;
-	import User.UserVO;
-	import Ranking.Rank;
+	import="User.UserDAO"
+	import="User.UserVO"
+	import="Ranking.Rank"
 
 
 %>
@@ -12,14 +12,11 @@
  		out.println("can't access");
  	}
  	else {
- 		String Readage = request.getParameter("age");
- 		String Readheight = request.getParameter("height");
- 		String Readsex = request.getParameter("female");
+ 		int age = Integer.parseInt(request.getParameter("age"));
+ 		double height = Double.parseDouble(request.getParameter("height"));
+ 		boolean sex = Boolean.parseBoolean(request.getParameter("female"));
  		
  		
- 		int age = Integer.parseInt(Readage);
- 		double height = Double.parseDouble(Readheight);
- 		boolean sex = Boolean.parseBoolean(Readsex);
  		int isMale;
  		if (sex == false) isMale = 1;
  		else isMale = 2;
@@ -29,12 +26,12 @@
 		
 		double[] result = new double[2];
 		result = Rank.Return_Rank(vo, dao);
- 		//String male = request.getParameter("male");
  		
- 		//out.println("당신, " + inpt + hs + female +male+" 라고 썻씁니다.");
- 		out.println("당신, " + age + height + sex +" 라고 썻씁니다.");
- 		//out.println("당신, " + height + " '라고 썻씁니다.");
- 		//System.out.println(height2);
- 	}
+		
+ 		out.println("Your Rank is : " + (int)result[0]); %>
+ 		<br>
+<%  	out.println("Your percnetile is :" +  (double)Math.round((result[1]*1000)/1000.000) + "%");
  	
-%>
+ 	}
+%> 	
+

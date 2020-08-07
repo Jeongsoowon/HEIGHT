@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-	private static String dbURL = "jdbc:mysql://localhost/HEIGHT?useSSL=false";
-	private static String dbID = "root";
-	private static String dbPassword = "845284";
+	private static String dbURL = "jdbc:mysql://172.30.1.220/HEIGHT?useSSL=false";
+	private static String dbID = "MS";
+	private static String dbPassword = "123456";
 	private static Connection conn;
 	private static Statement stmt;
 	private static ResultSet rs;

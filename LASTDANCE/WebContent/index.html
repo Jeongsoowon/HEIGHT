@@ -62,7 +62,7 @@
       	}
       	var s = document.getElementById("height").value;
       	var k = document.getElementById("age").value;
-      //	var h = documnet.getElemnetById("male").checked;
+      	//var h = documnet.getElemnetById("male").checked;
       	var f = document.getElementById("female").checked;
       //	var e = {s, k};
       //	var h = document.getElemnetById("height").value;
@@ -76,8 +76,9 @@
       	req.onreadystatechange = function() {
       		if (this.readyState == 4 && this.status == 200){
       			var msg = document.getElementById('msg');
-      			var msg2 = document.getElementById('msg2');
+      			//var msg2 = document.getElementById('msg2');
       			msg.innerHTML = this.responseText;
+      			//msg2.innerHTML = this.responseText;
       		}
       	}
       	req.send();
