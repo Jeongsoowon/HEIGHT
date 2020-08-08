@@ -54,29 +54,20 @@
 
         </style>
      <script type="text/javascript">
-	  function doAction1(){
+	  function doAction(){
       	var req = createRequest();
       	if (req == null){
       		alert("실행이 되지 않는다!");
       		return ;
       	}
-      	var s = document.getElementById("height").value;
-      	var k = document.getElementById("age").value;
-      //	var h = documnet.getElemnetById("male").checked;
-      	var f = document.getElementById("female").checked;
-      //	var e = {s, k};
-      //	var h = document.getElemnetById("height").value;
-
- 	   // var m = document.getElementById("male").checked;
-        //var f = document.getElementById("female").checked;
-      	//req.open("GET", "index.jsp?height= " + encodeURI(s)+ "&age=" + encodeURI(k) + "&male=" + encodeURI(h) + " &female=" + encodeURI(f));
-      	//req.open("post", "index.jsp?age= " + encodeURI(k));
-      	req.open("GET", "index.jsp?female=" + encodeURI(f) + "&age=" + encodeURI(k) + "&height=" + encodeURI(s));
+      	var hei = document.getElementById("height").value;
+      	var ag = document.getElementById("age").value;
+      	var fem = document.getElementById("female").checked;
+      	req.open("GET", "index.jsp?female=" + encodeURI(fem) + "&age=" + encodeURI(ag) + "&height=" + encodeURI(hei));
       	req.setRequestHeader("User-Agent", "XMLHttpRequest");
       	req.onreadystatechange = function() {
       		if (this.readyState == 4 && this.status == 200){
       			var msg = document.getElementById('msg');
-      			var msg2 = document.getElementById('msg2');
       			msg.innerHTML = this.responseText;
       		}
       	}
@@ -110,7 +101,6 @@
        <div class="nav">
            ver.prototype
        </div> 
-       <p id="msg"> 여기에 무언가가 뜰꺼 </p>  <p id="msg2"> 여기에 무언가가 뜰꺼 </p>
       
        <div class="main">
            <div class="title">
@@ -132,7 +122,7 @@
             </form>           
             </div>
             <div style="text-align: center; padding-top: 100px;">
-                <button class="run_check" type="button" id="checkButton" onclick="getInput(); buttonClick(); showChart(); doAction1();">
+                <button class="run_check" type="button" id="checkButton" onclick="getInput(); buttonClick(); showChart();">
                     check
                 </button>
             </div>
@@ -196,12 +186,14 @@
                     
                     if (elem.innerText=="check") {
                         elem.innerText = "cancel";
+                        doAction();
                         barDisplay();
                         move();
                         document.getElementById("demo").innerText = sex + " / " + age + " / "+ height;
                         document.getElementById("demo").style.color = "red";
                         document.getElementById("demo").style.display = "block";
                         document.getElementById("curve_chart").style.display = "block";
+                        document.getElementById("msg").style.display = "block";
                         
                         }
                     else {
@@ -209,6 +201,8 @@
                         barHide();
                         document.getElementById("demo").style.display = "none";
                         document.getElementById("curve_chart").style.display = "none";
+                        document.getElementById("msg").style.display = "none";
+                        
                         }
                 }
 
@@ -270,7 +264,9 @@
 
 
             <p id="demo" style="text-align: center;"></p>
+            <p id="msg" style="text-align: center;"></p>
             <div id="curve_chart" style="width: 900px; height: 500px; margin: auto;"></div>
+            
        </div>
     </body>
 </html>
